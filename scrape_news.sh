@@ -23,7 +23,7 @@ do
 	if [[ $bibi -eq 0  &&  $gantz -eq 0 && $lapid -eq 0 && $bengvir -eq 0 ]]; then
 		echo "$i, -"
 	else
-		echo -n "$i, Netanyahu, "
+		echo -n "$i, Netanyau, "
 		echo -n "$bibi, Gantz, "
 		echo -n "$gantz, Lapid, "
 		echo -n "$lapid, Ben-gvir, "
@@ -31,4 +31,8 @@ do
 		echo ""
 	fi
 done
+:qw
+:wq
+:w
+:wq
 
