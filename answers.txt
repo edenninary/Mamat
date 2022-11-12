@@ -1,5 +1,0 @@
-1. Scrolling through Ynet and opening every link could take approximately 15 minutes. Opening up the source code on each link takes another 3 sec per page, Ctrl F another 5 seconds per name. Recording the result takes another 10 seconds. All in all: we estimate it to be 2-5 hours.
-
-2. This is an extremely efficient way to find names or tags on the web. This can be very helpful for Machine learning, security, and all sorts of things that requre finding information within a lot of data.
-
-3. Surely there is a way to link the code to the time on the computer and make it search every hour. By comparing the links to the previous results we can avoid recounting existing articles.
