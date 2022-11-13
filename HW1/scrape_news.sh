@@ -19,7 +19,7 @@ do
 	bibi=$(echo $article_i | grep -ioP "Netanyahu" | wc -l)
 	gantz=$(echo $article_i | grep -ioP "Gantz" | wc -l)
 	lapid=$(echo $article_i | grep -ioP "Lapid" | wc -l)
-	bengvir=$(echo $article_i | grep -ioP "Ben Gvir" | wc -l)
+	bengvir=$(echo $article_i | grep -ioP "Ben-Gvir" | wc -l)
 	#if non appear print -
 	if [[ $bibi -eq 0  &&  $gantz -eq 0 && $lapid -eq 0 && $bengvir -eq 0 ]]; then
 		echo "$i, -"
