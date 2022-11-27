@@ -2,12 +2,12 @@
 
 if [ "$#" -ne 1 ]; then 
 	echo "Wrong number of arguments" 1>&2
-	exit 0
+	exit 1
 fi
 
 if [ ! -f "$*.txt" ];then
 	echo "Course not found" 1>&2
-	exit 0
+	exit 1
 fi
 
 if [ -d "$*_stat" ];then
