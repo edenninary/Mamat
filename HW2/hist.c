@@ -35,6 +35,7 @@ int main(int argc, char **argv) {
 	}
 	hist(bins,f,nbins);
 	free(bins);
+	fclose(f);
 
 }
 
