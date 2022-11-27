@@ -42,4 +42,4 @@ done
 prec_pass1=$(( $pass_count*100 ))
 prec_pass2=$(( $prec_pass1/$n ))
 
-echo -e "$mean"' \t'"$median"' \t'"$min"' \t'"$max"' \t'"$prec_pass2" > ./"$*_stat"/statistics.txt
+echo -e "$mean"'\t'"$median"'\t'"$min"'\t'"$max"'\t'"$prec_pass2" > ./"$*_stat"/statistics.txt
