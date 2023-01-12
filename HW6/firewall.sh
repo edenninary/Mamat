@@ -14,7 +14,7 @@ data=$(cat $1 | sed 's/ //g' | \
 
 #save the packets into a variable     
 pkt=$(cat)
-data1=""
+
 
 #put the rules into an array
 #and send each packet through each rule
@@ -27,4 +27,5 @@ while read -r cur_rule; do
                           ./firewall.exe "${rule[1]}" | \
                           ./firewall.exe "${rule[2]}" | \
                           ./firewall.exe "${rule[3]}")"
-done <<< "$data" | sort --unique | sed 's/ //g' > results.txt
+
+done <<< "$data" | sort --unique | sed 's/ //g' | sed '/^$/d' 

@@ -5,9 +5,9 @@
 
 class Ip : public GenericField {
     private:
+        String ip_name;
         unsigned int ip_addr;
         int mask;
-        String ip_name;
 
     protected:
         bool match(String value);

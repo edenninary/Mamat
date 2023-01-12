@@ -13,7 +13,7 @@ Port::~Port(){}
 bool Port::set_value(String value){
 
     String *arr_num;
-    unsigned long int size;
+    size_t size;
     value.split("-", &arr_num, &size);
 
     if(size != 2){
@@ -29,20 +29,26 @@ bool Port::set_value(String value){
 }
 
 bool Port::match(String value){
+    
     String *split_temp;
-    String *split_pkts;
-    unsigned long size_pkts = 0;
-    unsigned long size = 0;
+    String *split_pkts = NULL;
+    size_t size_pkts = 0;
+    size_t size = 0;
+    if(value.equals("")){
+    	
+    	return false;
+    }
     value.split(",", &split_pkts, &size_pkts);
     for(int i=0; i<int(size_pkts); i++){
         size = 0;
         split_pkts[i].split("=", &split_temp, &size);
-        if(split_temp[0].trim().equals(this->port_name)){
+        if(split_temp[0].trim().equals(port_name)){
             break;
         }
+        delete[] split_temp;
     }
     int temp_value = (split_temp[1].trim()).to_integer();
-    return ((temp_value >= low_value) && (temp_value <= high_value));
+    delete[] split_temp;
+    delete[] split_pkts;
+    return ((temp_value >= this->low_value) && (temp_value <= high_value));
 }
-
-

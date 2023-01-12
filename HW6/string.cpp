@@ -40,7 +40,9 @@ String& String::operator=(const String &rhs){
 }
 
 String& String::operator=(const char *str){
+
     delete[] data;
+
     data = new char[strlen(str) + 1];
 	strcpy(data, str);
 	length = strlen(str);
@@ -63,21 +65,28 @@ bool String::equals(const char *rhs) const{
 
 void String::split(const char *delimiters, String **output, size_t *size) const
 {
-    //calculating size
+    if(*data == '\0'){
+        *output = NULL;
+        return;
+    }
     char *temp_data = new char[length + 1];
     strcpy(temp_data, data);
+    
+    //first calculating size, needed for memory allocation later on
     *size = 0;
     char *token;
     token = strtok(temp_data, delimiters);
+   
     while(token != NULL){
         (*size)++;
         token = strtok(NULL, delimiters);
     }
-    //------------Spliting and storing the sub-strings----------------------
+
+    //Spliting and storing the sub-strings
     if(output){
         char *temp_data2 = new char[length +1];
         strcpy(temp_data2, data);
-        String *temp = new String[(*size)];
+        String *temp = new String [(*size)];
         token = strtok(temp_data2, delimiters);
         int i=0;
         while(token != NULL){
@@ -86,9 +95,10 @@ void String::split(const char *delimiters, String **output, size_t *size) const
         }
         *output = temp;
         delete[] temp_data2;
-    }  
+    } 
     delete[] temp_data;
 }
+
 
 int String::to_integer() const{
     return atoi(data);
@@ -96,21 +106,21 @@ int String::to_integer() const{
 
 String String::trim() const{
     int count_space_start = 0;
+
     int count_space_end = length - 1;
     String B;
-    //--------------------------counting white spaces-----------------------
+	//counting white spaces
     while(data[count_space_start] == ' '){
         count_space_start++;
     }
-    //--------------------------if no white spaces--------------------------
+    //if no white spaces
     if(count_space_start == int(length)){
         return B;
     }
-    
     while(data[count_space_end] == ' '){
         count_space_end--;
     }
-    //--------------------------copying the data and returning--------------
+	//copying the data and returning
     char *temp = new char[(count_space_end - count_space_start + 2)];
     int k = 0;
     while(count_space_start <= count_space_end){
